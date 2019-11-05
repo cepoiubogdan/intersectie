@@ -6,12 +6,12 @@ import java.util.Random;
 
 public class Controller {
 
-	List<Car> lane1=new ArrayList<Car>();
-	List<Car> lane2=new ArrayList<Car>();
-	List<Car> lane3=new ArrayList<Car>();
-	List<Car> lane4=new ArrayList<Car>();
-	public int semaphoreId;
-	List<Semaphore> semaphores;
+	private List<Car> lane1=new ArrayList<Car>();
+	private List<Car> lane2=new ArrayList<Car>();
+	private List<Car> lane3=new ArrayList<Car>();
+	private List<Car> lane4=new ArrayList<Car>();
+	private int semaphoreId;
+	private List<Semaphore> semaphores;
 	
 	Controller(List<Semaphore> semaphore){
 		this.semaphores=semaphore;
@@ -25,7 +25,9 @@ public class Controller {
 			
 		}
 	}
+	
 	public void addCars() {
+		
 		Random r=new Random();
 		int wichLane=r.nextInt(4);
 		int addedCars=r.nextInt(4)+1;
@@ -61,8 +63,11 @@ public class Controller {
 				System.out.println(addedCars+" Added cars to the lane 4");
 				break;	
 		}
+		
 	}
+	
 	public void start() {
+		
 		while (true) {
 			semaphores.get(semaphoreId).setColor(" Green");
 			switch (semaphoreId) {
